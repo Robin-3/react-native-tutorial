@@ -18,6 +18,7 @@
     extensions = [
       # "vscodevim.vim"
       "usernamehw.errorlens"
+      "dsznajder.es7-react-js-snippets"
     ];
     # Enable previews
     previews = {
