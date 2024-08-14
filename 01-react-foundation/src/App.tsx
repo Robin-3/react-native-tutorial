@@ -1,7 +1,8 @@
 import {
   // Counter,
   // CounterWithHook,
-  LoginPage
+  // LoginPage,
+  UsersPage
 } from "./components";
 // import {BasicFunctions, BasicTypes, ObjectLiterals} from "./typescript";
 
@@ -9,7 +10,7 @@ function App() {
   return (
     <main>
       <h1>Introducción a React + TS</h1>
-      <LoginPage />
+      <UsersPage />
     </main>
   );
 }
