@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "01-dev": "npm run dev --workspace=01-react-foundation",
-    "02-start": "npm run start --workspace=02-MyFirstApp"
+    "02-start": "npm run start --workspace=02-MyFirstApp",
+    "02-android": "npm run android --workspace=02-MyFirstApp"
   },
   "keywords": [],
   "author": "",
