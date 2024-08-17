@@ -14,15 +14,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#28425b",
-    /// 3, 7, 8, 9, 10
-    // justifyContent: "center"
+    /// 2, 3, 7, 8, 9, 10
+    // justifyContent: "center",
     /// 4, 5
-    // justifyContent: "space-between"
+    // justifyContent: "space-between",
     /// 5, 10
-    // flexDirection: "row"
+    // flexDirection: "row",
     /// 7, 8, 9, 10
     // alignItems: "center"
-
   },
   box: {
     width: 100,
