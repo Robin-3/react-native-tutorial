@@ -44,11 +44,11 @@
         #   command = [ "npm" "run" "web" "--" "--port" "$PORT" ];
         #   manager = "web";
         # };
-        android = {
-          # noop
-          command = [ "tail" "-f" "/dev/null" ];
-          manager = "web";
-        };
+        # android = {
+        #   # noop
+        #   command = [ "tail" "-f" "/dev/null" ];
+        #   manager = "web";
+        # };
       };
     };
     # Workspace lifecycle hooks
@@ -86,12 +86,12 @@
       };
       # Runs when the workspace is (re)started
       onStart = {
-        connect-device = ''
-          adb -s localhost:5554 wait-for-device
-        '';
-        android = ''
-          npm run 02-android -- --port 5554 --tunnel
-        '';
+        # connect-device = ''
+        #   adb -s localhost:5554 wait-for-device
+        # '';
+        # android = ''
+        #   npm run 02-android -- --port 5554 --tunnel
+        # '';
       };
     };
   };
