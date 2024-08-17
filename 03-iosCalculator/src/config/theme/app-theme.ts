@@ -6,6 +6,7 @@ export const colors = {
   orange: "#ff9427",
   textPrimary: "#ffffff",
   textSecondary: "#666666",
+  inverseTextPrimary: "#000000",
   background: "#000000"
 };
 
