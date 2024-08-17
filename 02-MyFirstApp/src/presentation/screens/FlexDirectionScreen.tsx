@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     // height: 100
   },
   box1: {
-    backgroundColor: "#5856d6"
+    backgroundColor: "#5856d6",
+    alignSelf: "flex-end"
   },
   box2: {
     backgroundColor: "#4240a2"
