@@ -3,7 +3,7 @@ import { globalStyles } from "../../theme/theme";
 
 interface Props {
   label: string;
-  onPress?: ((event: GestureResponderEvent) => void) | null;
+  onPress: (event: GestureResponderEvent) => void;
 }
 
 export const PrimaryButton = ({ label, onPress }: Props) => {
