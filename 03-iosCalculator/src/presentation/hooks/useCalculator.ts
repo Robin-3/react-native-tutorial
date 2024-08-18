@@ -85,6 +85,28 @@ export const useCalculator = () => {
     lastOpration.current = Operator.divide;
   };
 
+  const calculateResult = () => {
+    const num1 = +number;
+    const num2 = +prevNumber;
+    switch (lastOpration.current) {
+      case Operator.add:
+        setNumber(`${num2 + num1}`);
+        break;
+      case Operator.subtract:
+        setNumber(`${num2 - num1}`);
+        break;
+      case Operator.multiply:
+        setNumber(`${num2 * num1}`);
+        break;
+      case Operator.divide:
+        setNumber(`${num2 / num1}`);
+        break;
+      default:
+        throw new Error("Operation not implemented");
+    }
+    setPrevNumber("0");
+  };
+
   return {
     // Properties
     number,
@@ -97,6 +119,7 @@ export const useCalculator = () => {
     addOperation,
     subtractOperation,
     multiplyOperation,
-    divideOperation
+    divideOperation,
+    calculateResult
   };
 };
