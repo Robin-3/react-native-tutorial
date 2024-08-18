@@ -6,7 +6,8 @@
   "workspaces": [
     "01-react-foundation",
     "02-MyFirstApp",
-    "03-iosCalculator"
+    "03-iosCalculator",
+    "04-NavigationApp"
   ],
   "scripts": {
     "01-dev": "npm run dev --workspace=01-react-foundation",
