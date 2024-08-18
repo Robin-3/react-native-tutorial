@@ -34,7 +34,7 @@ export const CalculatorScreen = () => {
         >
           adjustsFontSizeToFit
           numberOfLines={1}
-          {+prevNumber ? prevNumber : " "}
+          {(prevNumber !== formula) ? prevNumber : " "}
         </Text>
       </View>
       <View style={styles.row}>
