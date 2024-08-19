@@ -13,7 +13,7 @@ export const CountScreen = () => {
     navigation.setOptions({
       title: `Count: ${count}`
     });
-  }, []);
+  }, [count]);
 
   return (
     <View style={styles.container}>
