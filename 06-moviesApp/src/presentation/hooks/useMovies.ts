@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Movie } from "../../core/entities/movie.entity";
+import { type Movie } from "../../core/entities/movie.entity";
 
 import * as UseCases from "../../core/use-cases";
 import { movieDBFetcher } from "../../config/adapters/movie-db.adapter";
@@ -16,5 +16,8 @@ export const useMovies = () => {
     const nowPlayingMovies = await UseCases.moviesNowPlayingUseCase(movieDBFetcher);
   };
 
-  return {};
+  return {
+    isLoading,
+    nowPlaying
+  };
 };
