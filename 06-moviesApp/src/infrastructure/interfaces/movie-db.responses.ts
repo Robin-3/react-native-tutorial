@@ -6,6 +6,27 @@ export interface NowPlayingResponse {
   total_results: number;
 }
 
+export interface UpcomingResponse {
+  page: number;
+  results: Result[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface TopRatedResponse {
+  page: number;
+  results: Result[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface PopularResponse {
+  page: number;
+  results: Result[];
+  total_pages: number;
+  total_results: number;
+}
+
 export interface Dates {
   maximum: Date;
   minimum: Date;

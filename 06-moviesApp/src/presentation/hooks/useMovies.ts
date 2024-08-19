@@ -13,7 +13,14 @@ export const useMovies = () => {
   }, []);
 
   const initialLoad = async () => {
-    const nowPlayingMovies = await UseCases.moviesNowPlayingUseCase(movieDBFetcher);
+    const nowPlayingMovies = UseCases.moviesNowPlayingUseCase(movieDBFetcher);
+    const upcomingMovies = UseCases.moviesUpcomingUseCase(movieDBFetcher);
+    const topRatedMovies = UseCases.moviesTopRatedUseCase(movieDBFetcher);
+    const popularMovies = UseCases.moviesPopularUseCase(movieDBFetcher);
+
+    const promises = [nowPlayingMovies, upcomingMovies, topRatedMovies, popularMovies];
+
+    await Promise.allSettled(promises);
   };
 
   return {
