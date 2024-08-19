@@ -8,7 +8,8 @@
     "02-MyFirstApp",
     "03-iosCalculator",
     "04-NavigationApp",
-    "05-contextapp"
+    "05-contextapp",
+    "06-moviesApp"
   ],
   "scripts": {
     "01-dev": "npm run dev --workspace=01-react-foundation",
