@@ -12,7 +12,10 @@ export const HomeScreen = () => {
     nowPlaying,
     popular,
     topRated,
-    upcoming
+    upcoming,
+    popularNextPage,
+    topRatedNextPage,
+    upcomingNextPage,
   } = useMovies();
 
   if (isLoading) {
@@ -31,17 +34,17 @@ export const HomeScreen = () => {
         <HorizontalCarrousel
           movies={popular}
           title="Populares"
-          loadNextPage={() => { }}
+          loadNextPage={popularNextPage}
         />
         <HorizontalCarrousel
           movies={topRated}
           title="Mejor calificadas"
-          loadNextPage={() => { }}
+          loadNextPage={topRatedNextPage}
         />
         <HorizontalCarrousel
           movies={upcoming}
           title="Próximamente"
-          loadNextPage={() => { }}
+          loadNextPage={upcomingNextPage}
         />
       </View>
     </ScrollView>

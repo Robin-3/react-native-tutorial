@@ -1,4 +1,4 @@
-import axios, { type AxiosInstance } from "axios";
+import axios, { type AxiosRequestConfig, type AxiosInstance } from "axios";
 import { HttpAdapter } from "./http.adapter";
 
 interface Options {
@@ -13,9 +13,17 @@ export class AxiosAdapter implements HttpAdapter {
     this.axiosInstance = axios.create({ baseURL, params });
   }
 
-  async get<T>(url: string, options?: Record<string, unknown>): Promise<T> {
+  async get<T>(url: string, options?: AxiosRequestConfig): Promise<T> {
     try {
-      const { data } = await this.axiosInstance.get<T>(url, options);
+      const mergedOptions = {
+        ...options,
+        params: {
+          ...this.axiosInstance.defaults.params,
+          ...(options?.params || {})
+        }
+      };
+
+      const { data } = await this.axiosInstance.get<T>(url, mergedOptions);
       return data;
     } catch {
       throw new Error(`Error fetching get: ${url}`);
