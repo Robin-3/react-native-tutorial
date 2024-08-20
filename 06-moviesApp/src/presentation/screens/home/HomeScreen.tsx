@@ -28,9 +28,21 @@ export const HomeScreen = () => {
         }}
       >
         <PosterCarrousel movies={nowPlaying} />
-        <HorizontalCarrousel movies={popular} title="Populares" />
-        <HorizontalCarrousel movies={topRated} title="Mejor calificadas" />
-        <HorizontalCarrousel movies={upcoming} title="Próximamente" />
+        <HorizontalCarrousel
+          movies={popular}
+          title="Populares"
+          loadNextPage={() => { }}
+        />
+        <HorizontalCarrousel
+          movies={topRated}
+          title="Mejor calificadas"
+          loadNextPage={() => { }}
+        />
+        <HorizontalCarrousel
+          movies={upcoming}
+          title="Próximamente"
+          loadNextPage={() => { }}
+        />
       </View>
     </ScrollView>
   );
