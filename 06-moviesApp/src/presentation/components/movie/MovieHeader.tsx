@@ -1,5 +1,4 @@
 import { Image, Pressable, StyleSheet, Text, View, useWindowDimensions } from "react-native";
-import { type FullMovie } from "../../../core/entities/movie.entity";
 import { useNavigation } from "@react-navigation/native";
 
 interface Props {
