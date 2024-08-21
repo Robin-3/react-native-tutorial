@@ -11,11 +11,14 @@ export const Button = ({ text, style, onPress }: Props) => {
   return (
     <Pressable
       onPress={onPress}
-      style={({ pressed }) => ({
-        ...globalStyles.btnPrimary,
-        opacity: pressed ? 0.8 : 1,
-        backgroundColor: colors.primary
-      })}
+      style={({ pressed }) => ([
+        globalStyles.btnPrimary,
+        {
+          opacity: pressed ? 0.8 : 1,
+          backgroundColor: colors.primary
+        },
+        style
+      ])}
     >
       <Text style={{ ...globalStyles.btnPrimaryText, color: colors.buttonTextColor }}>
         {text}
