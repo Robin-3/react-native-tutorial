@@ -3,6 +3,7 @@ import { globalStyles } from "../../../config/theme/theme";
 import { Button } from "../../components/ui/Button";
 import { CustomView } from "../../components/ui/CustomView";
 import { Title } from "../../components/ui/Title";
+import { showPrompt } from "../../../config/theme/adapters/prompt.adapter";
 
 export const AlertScreen = () => {
   const createTwoButtonAlert = () =>
@@ -29,15 +30,22 @@ export const AlertScreen = () => {
       }
     ]);
 
-  const showPrompt =
-    Alert.prompt(
-      "Alert Title",
-      "My Alert Msg",
-      (valor: string) => console.log({ valor }),
-      "secure-text",
-      "default value",
-      "number-pad"
-    );
+  const onShowPrompt = () => {
+    showPrompt({
+      title: "Enter password",
+      message: "Enter your password to claim your $1.5B in lottery winnings",
+      buttons: [
+        { text: "Cancel", onPress: () => console.log("Cancel Pressed"), style: "cancel" },
+        { text: "OK", onPress: password => console.log(`OK Pressed, password: ${password}`) },
+      ],
+      options: {
+        type: "secure-text",
+        cancelable: false,
+        defaultValue: "test",
+        placeholder: "placeholder"
+      }
+    });
+  };
 
   return (
     <CustomView style={globalStyles.globalMargin}>
@@ -53,7 +61,7 @@ export const AlertScreen = () => {
       />
       <Button
         text="Prompt - Input"
-        onPress={() => { }}
+        onPress={onShowPrompt}
       />
     </CustomView>
   );
