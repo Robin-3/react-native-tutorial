@@ -10,7 +10,8 @@
     "04-NavigationApp",
     "05-contextapp",
     "06-moviesApp",
-    "07-componentsApp"
+    "07-componentsApp",
+    "08-pokedex"
   ],
   "scripts": {
     "01-dev": "npm run dev --workspace=01-react-foundation",
