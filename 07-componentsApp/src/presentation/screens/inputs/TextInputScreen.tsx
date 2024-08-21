@@ -3,9 +3,11 @@ import { globalStyles } from "../../../config/theme/theme";
 import { Card } from "../../components/ui/Card";
 import { CustomView } from "../../components/ui/CustomView";
 import { Title } from "../../components/ui/Title";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export const TextInputScreen = () => {
+  const { colors } = useContext(ThemeContext);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -21,14 +23,14 @@ export const TextInputScreen = () => {
           <Title safe text="Text Inputs" />
           <Card>
             <TextInput
-              style={globalStyles.input}
+              style={{ ...globalStyles.input, color: colors.text }}
               placeholder="Nombre completo"
               autoCapitalize="words"
               autoCorrect={false}
               onChangeText={value => setForm({ ...form, name: value })}
             />
             <TextInput
-              style={globalStyles.input}
+              style={{ ...globalStyles.input, color: colors.text }}
               placeholder="Email"
               autoCapitalize="none"
               autoCorrect={false}
@@ -36,7 +38,7 @@ export const TextInputScreen = () => {
               onChangeText={value => setForm({ ...form, email: value })}
             />
             <TextInput
-              style={globalStyles.input}
+              style={{ ...globalStyles.input, color: colors.text }}
               placeholder="Teléfono"
               keyboardType="phone-pad"
               onChangeText={value => setForm({ ...form, phone: value })}
@@ -65,7 +67,7 @@ export const TextInputScreen = () => {
           <View style={{ height: 20 }} />
           <Card>
             <TextInput
-              style={globalStyles.input}
+              style={{ ...globalStyles.input, color: colors.text }}
               placeholder="Teléfono"
               keyboardType="phone-pad"
               onChangeText={value => setForm({ ...form, phone: value })}

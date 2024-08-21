@@ -1,11 +1,12 @@
 import { RefreshControl, ScrollView } from "react-native";
-import { CustomView } from "../../components/ui/CustomView";
 import { Title } from "../../components/ui/Title";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useState } from "react";
-import { colors, globalStyles } from "../../../config/theme/theme";
+import { useContext, useState } from "react";
+import { globalStyles } from "../../../config/theme/theme";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export const PullToRefreshScreen = () => {
+  const { colors } = useContext(ThemeContext);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const { top } = useSafeAreaInsets();
@@ -27,7 +28,7 @@ export const PullToRefreshScreen = () => {
           colors={[colors.primary, "red", "orange", "green"]}
         />
       }
-      style={{ ...globalStyles.mainContainer, ...globalStyles.globalMargin }}
+      style={{ ...globalStyles.mainContainer, backgroundColor: colors.background, ...globalStyles.globalMargin }}
     >
       <Title safe text="Pull to refresh" />
     </ScrollView>

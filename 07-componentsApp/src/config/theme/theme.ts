@@ -8,14 +8,6 @@ export interface ThemeColors {
   buttonTextColor: string;
 }
 
-export const colors: ThemeColors = {
-  primary: "#5856D6",
-  text: "black",
-  background: "#F3F2F7",
-  cardBackground: "white",
-  buttonTextColor: "white"
-};
-
 export const lightColors: ThemeColors = {
   primary: "#5856D6",
   text: "black",
@@ -35,13 +27,11 @@ export const darkColors: ThemeColors = {
 export const globalStyles = StyleSheet.create({
   title: {
     fontSize: 30,
-    fontWeight: "bold",
-    color: colors.text
+    fontWeight: "bold"
   },
   subTitle: {
     fontSize: 20,
-    fontWeight: "bold",
-    color: colors.text
+    fontWeight: "bold"
   },
   input: {
     height: 40,
@@ -49,25 +39,21 @@ export const globalStyles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderColor: "rgba(0, 0, 0, 0.3)",
-    borderRadius: 10,
-    color: colors.text
+    borderRadius: 10
   },
   mainContainer: {
     flex: 1,
-    backgroundColor: colors.background
   },
   globalMargin: {
     paddingHorizontal: 20,
     flex: 1
   },
   btnPrimary: {
-    backgroundColor: colors.primary,
     borderRadius: 10,
     padding: 10,
     alignItems: "center"
   },
   btnPrimaryText: {
-    color: colors.text,
     fontSize: 16
   }
 });

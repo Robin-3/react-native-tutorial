@@ -4,6 +4,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Title } from "../../components/ui/Title";
 import { MenuItem } from "../../components/ui/MenuItem";
 import { Separator } from "../../components/ui/Separator";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const animationMenuItems = [
   {
@@ -76,8 +78,10 @@ const menuGroups = [
 ];
 
 export const HomeScreen = () => {
+  const { colors } = useContext(ThemeContext);
+
   return (
-    <View style={globalStyles.mainContainer}>
+    <View style={{ ...globalStyles.mainContainer, backgroundColor: colors.background }}>
       <View style={globalStyles.globalMargin}>
         <ScrollView>
           <Title text="Opciones del menú" safe />

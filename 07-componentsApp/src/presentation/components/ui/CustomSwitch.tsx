@@ -1,5 +1,6 @@
+import { useContext } from "react";
 import { Platform, StyleSheet, Switch, Text, View } from "react-native";
-import { colors } from "../../../config/theme/theme";
+import { ThemeContext } from "../../context/ThemeContext";
 
 interface Props {
   isOn: boolean;
@@ -8,6 +9,8 @@ interface Props {
 }
 
 export const CustomSwitch = ({ isOn, text, onChange }: Props) => {
+  const { colors } = useContext(ThemeContext);
+
   return (
     <View style={styles.switchRow}>
       {text && <Text style={{ color: colors.text }}> {text}</Text>};
