@@ -29,6 +29,16 @@ export const AlertScreen = () => {
       }
     ]);
 
+  const showPrompt =
+    Alert.prompt(
+      "Alert Title",
+      "My Alert Msg",
+      (valor: string) => console.log({ valor }),
+      "secure-text",
+      "default value",
+      "number-pad"
+    );
+
   return (
     <CustomView style={globalStyles.globalMargin}>
       <Title safe text="Alertas" />
