@@ -7,6 +7,7 @@ import { AlertScreen } from "../screens/alerts/AlertScreen";
 import { TextInputScreen } from "../screens/inputs/TextInputScreen";
 import { PullToRefreshScreen } from "../screens/ui/PullToRefreshScreen";
 import { CustomSectionListScreen } from "../screens/ui/CustomSectionListScreen";
+import { ModalScreen } from "../screens/ui/ModalScreen";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -21,6 +22,7 @@ export const Navigation = () => {
       <Screen name="TextInputScreen" component={TextInputScreen} />
       <Screen name="PullToRefreshScreen" component={PullToRefreshScreen} />
       <Screen name="CustomSectionListScreen" component={CustomSectionListScreen} />
+      <Screen name="ModalScreen" component={ModalScreen} />
     </Navigator>
   );
 };
