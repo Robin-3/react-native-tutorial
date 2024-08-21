@@ -3,6 +3,7 @@ import { globalStyles } from "../../../config/theme/theme";
 import { ScrollView } from "react-native-gesture-handler";
 import { Title } from "../../components/ui/Title";
 import { MenuItem } from "../../components/ui/MenuItem";
+import { Separator } from "../../components/ui/Separator";
 
 const animationMenuItems = [
   {
@@ -81,14 +82,20 @@ export const HomeScreen = () => {
         <ScrollView>
           <Title text="Opciones del menú" safe />
           {menuGroups.flatMap((itemGroup, indexGroup) => (
-            itemGroup.map((item, index) => (
-              <MenuItem
-                key={`${indexGroup}-${index}`}
-                {...item}
-                isFisrt={index === 0}
-                isLast={index === menuGroups[indexGroup].length - 1}
-              />
-            ))
+            itemGroup.map((item, index) => {
+              const isLast = index === menuGroups[indexGroup].length - 1;
+              return (
+                <>
+                  <MenuItem
+                    key={`${indexGroup}-${index}`}
+                    {...item}
+                    isFisrt={index === 0}
+                    isLast={isLast}
+                  />
+                  {!isLast && <Separator />}
+                </>
+              );
+            })
           ))}
           <View style={{ marginTop: 30 }} />
         </ScrollView>
