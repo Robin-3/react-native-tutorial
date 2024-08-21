@@ -3,7 +3,7 @@ import { globalStyles } from "../../../config/theme/theme";
 import { Button } from "../../components/ui/Button";
 import { CustomView } from "../../components/ui/CustomView";
 import { Title } from "../../components/ui/Title";
-import { showPrompt } from "../../../config/theme/adapters/prompt.adapter";
+import { showPrompt } from "../../../config/adapters/prompt.adapter";
 
 export const AlertScreen = () => {
   const createTwoButtonAlert = () =>
@@ -48,7 +48,7 @@ export const AlertScreen = () => {
   };
 
   return (
-    <CustomView style={globalStyles.globalMargin}>
+    <CustomView margin>
       <Title safe text="Alertas" />
       <Button
         text="Alerta - 2 Botones"
