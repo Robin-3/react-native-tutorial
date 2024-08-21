@@ -2,6 +2,7 @@ import { FlatList, Image, type NativeScrollEvent, type NativeSyntheticEvent, Tex
 import { colors, globalStyles } from "../../../config/theme/theme";
 import { Button } from "../../components/ui/Button";
 import { useRef, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 interface Slide {
   title: string;
