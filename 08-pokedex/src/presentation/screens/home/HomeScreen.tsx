@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { getPokemons } from "../../../actions/pokemons";
-import { ActivityIndicator } from "react-native-paper";
+import { PokeballBG } from "../../components/ui/PokeballBg";
 
 export const HomeScreen = () => {
   const { isLoading, data = [] } = useQuery({
@@ -12,7 +12,15 @@ export const HomeScreen = () => {
 
   return (
     <View>
-      {isLoading && <ActivityIndicator />}
+      <PokeballBG style={styles.imgPosition} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  imgPosition: {
+    position: "absolute",
+    top: -100,
+    right: -100
+  }
+});

@@ -13,7 +13,11 @@ const { Navigator, Screen } = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
   return (
-    <Navigator>
+    <Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Screen name="Home" component={HomeScreen} />
       <Screen name="Pokemon" component={PokemonScreen} />
       <Screen name="Search" component={SearchScreen} />
