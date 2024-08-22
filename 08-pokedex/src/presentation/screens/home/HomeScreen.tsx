@@ -4,9 +4,9 @@ import { getPokemons } from "../../../actions/pokemons";
 import { ActivityIndicator } from "react-native-paper";
 
 export const HomeScreen = () => {
-  const { isLoading, data } = useQuery({
+  const { isLoading, data = [] } = useQuery({
     queryKey: ["pokemons"],
-    queryFn: () => getPokemons(),
+    queryFn: () => getPokemons(0),
     staleTime: 1000 * 60 * 60 //60 min
   });
 
