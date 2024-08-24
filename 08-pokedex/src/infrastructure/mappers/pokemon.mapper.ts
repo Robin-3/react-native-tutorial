@@ -4,11 +4,23 @@ import { PokeAPIPokemonResponse, Sprites } from "../interfaces/pokeapi.interface
 
 export class PokemonMapper {
   static async pokeApiPokemonToEntity(data: PokeAPIPokemonResponse): Promise<Pokemon> {
-    const { id, name, types: type } = data;
+    const {
+      id,
+      name,
+      types: apiTypes,
+      stats: apiStats,
+      game_indices,
+      abilities: apiAbilities,
+      moves: apiMoves
+    } = data;
     const sprites = PokemonMapper.getSprites(data.sprites);
     const avatar = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
-    const types = type.map(t => t.type.name);
+    const types = apiTypes.map((type) => type.type.name);
     const color = await getColorFromImage(avatar, "grey");
+    const games = game_indices.map((game) => game.version.name);
+    const stats = apiStats.map((stat) => ({ name: stat.stat.name, value: stat.base_stat }));
+    const abilities = apiAbilities.map((ability) => ability.ability.name);
+    const moves = apiMoves.map((move) => ({ name: move.move.name, level: move.version_group_details[0].level_learned_at }));
 
     return {
       id,
@@ -16,7 +28,11 @@ export class PokemonMapper {
       avatar,
       types,
       sprites,
-      color
+      color,
+      games,
+      stats,
+      abilities,
+      moves
     };
   }
 

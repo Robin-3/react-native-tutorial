@@ -87,6 +87,48 @@ export const PokemonScreen = ({ route }: Props) => {
           />
         )}
       />
+      <Text style={styles.subTitle}>Abilities</Text>
+      <FlatList
+        data={pokemon.abilities}
+        keyExtractor={item => item}
+        renderItem={({ item }) => <Chip>{Formatter.capitalize(item)}</Chip>}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
+      <Text style={styles.subTitle}>Stats</Text>
+      <FlatList
+        data={pokemon.stats}
+        keyExtractor={item => item.name}
+        renderItem={({ item }) => (
+          <View>
+            <Text style={{ flex: 1 }}>{Formatter.capitalize(item.name)}</Text>
+            <Text>{item.value}</Text>
+          </View>
+        )}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
+      <Text style={styles.subTitle}>Moves</Text>
+      <FlatList
+        data={pokemon.moves}
+        keyExtractor={item => item.name}
+        renderItem={({ item }) => (
+          <View>
+            <Text style={{ flex: 1 }}>{Formatter.capitalize(item.name)}</Text>
+            <Text>lvl {item.level}</Text>
+          </View>
+        )}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
+      <Text style={styles.subTitle}>Games</Text>
+      <FlatList
+        data={pokemon.games}
+        keyExtractor={item => item}
+        renderItem={({ item }) => <Chip>{Formatter.capitalize(item)}</Chip>}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
       <View style={{ height: 100 }} />
     </ScrollView>
   );
