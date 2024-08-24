@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const PokemonCard = ({ pokemon }: Props) => {
-  const { id, name, avatar, types } = pokemon;
+  const { id, color, name, avatar, types } = pokemon;
 
   const [typeIndex, setTypeIndex] = useState<number>(0);
 
@@ -24,7 +24,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
 
   return (
     <Card
-      style={[styles.cardContainer]}
+      style={[styles.cardContainer, { backgroundColor: color }]}
     >
       <Text variant="bodyLarge" lineBreakMode="middle">
         {`${name}\n#${id}`}
