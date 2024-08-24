@@ -1,8 +1,10 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import { type Pokemon } from "../../../domain/entities/pokemon";
 import { Card, Text } from "react-native-paper";
 import { useEffect, useState } from "react";
 import { FadeInImage } from "../ui/FadeInImage";
+import { type NavigationProp, useNavigation } from "@react-navigation/native";
+import { type RootStackParams } from "../../navigator/StackNavigator";
 
 interface Props {
   pokemon: Pokemon;
@@ -10,7 +12,7 @@ interface Props {
 
 export const PokemonCard = ({ pokemon }: Props) => {
   const { id, color, name, avatar, types } = pokemon;
-
+  const navigation = useNavigation<NavigationProp<RootStackParams>>();
   const [typeIndex, setTypeIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -23,26 +25,31 @@ export const PokemonCard = ({ pokemon }: Props) => {
   }, [typeIndex]);
 
   return (
-    <Card
-      style={[styles.cardContainer, { backgroundColor: color }]}
+    <Pressable
+      style={{ flex: 1 }}
+      onPress={() => navigation.navigate("Pokemon", { pokemonId: id })}
     >
-      <Text variant="bodyLarge" lineBreakMode="middle">
-        {`${name}\n#${id}`}
-      </Text>
-      <View style={styles.pokeballContainer}>
-        <Image
-          source={require("../../../assets/pokeball-light.png")}
-          style={styles.pokeball}
+      <Card
+        style={[styles.cardContainer, { backgroundColor: color }]}
+      >
+        <Text variant="bodyLarge" lineBreakMode="middle">
+          {`${name}\n#${id}`}
+        </Text>
+        <View style={styles.pokeballContainer}>
+          <Image
+            source={require("../../../assets/pokeball-light.png")}
+            style={styles.pokeball}
+          />
+        </View>
+        <FadeInImage
+          uri={avatar}
+          style={styles.pokemonImage}
         />
-      </View>
-      <FadeInImage
-        uri={avatar}
-        style={styles.pokemonImage}
-      />
-      <Text style={[styles.name, { marginTop: 35 }]}>
-        {types[typeIndex]}
-      </Text>
-    </Card>
+        <Text style={[styles.name, { marginTop: 35 }]}>
+          {types[typeIndex]}
+        </Text>
+      </Card>
+    </Pressable>
   );
 };
 
