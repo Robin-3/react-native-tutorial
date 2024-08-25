@@ -14,7 +14,7 @@ const { Navigator, Screen } = createStackNavigator<RootStackParams>();
 export const StackNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Loading"
+      initialRouteName="Permissions"
       screenOptions={{
         headerShown: false,
         cardStyle: { backgroundColor: "white" }
