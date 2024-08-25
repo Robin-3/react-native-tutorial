@@ -9,8 +9,10 @@ export const PermissionsCheker = ({ children }: PropsWithChildren) => {
   const navigation = useNavigation<NavigationProp<RootStackParams>>();
 
   useEffect(() => {
-    if (locationStatus === "granted") navigation.navigate("Maps");
-    else if (locationStatus === "undetermined") navigation.navigate("Permissions");
+    if (locationStatus === "granted")
+      navigation.reset({ routes: [{ name: "Maps" }] });
+    else if (locationStatus === "undetermined")
+      navigation.reset({ routes: [{ name: "Permissions" }] });
   }, [locationStatus]);
 
   useEffect(() => { checkLocationPermission(); }, []);
