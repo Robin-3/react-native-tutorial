@@ -11,7 +11,8 @@
     "05-contextapp",
     "06-moviesApp",
     "07-componentsApp",
-    "08-pokedex"
+    "08-pokedex",
+    "09-mapsapp"
   ],
   "scripts": {
     "01-dev": "npm run dev --workspace=01-react-foundation",
