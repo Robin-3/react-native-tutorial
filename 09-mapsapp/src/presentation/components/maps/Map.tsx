@@ -1,6 +1,7 @@
 import { Platform } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { type Location } from "../../../infrastructure/interfaces/location";
+import { FAB } from "../ui/FAB";
 
 interface Props {
   showUserLocation?: boolean;
@@ -19,6 +20,11 @@ export const Map = ({ showUserLocation = true, initialLocation }: Props) => {
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121
         }}
+      />
+      <FAB
+        iconName="compass-outline"
+        onPress={() => { }}
+        style={{ bottom: 20, right: 20 }}
       />
     </>
   );
