@@ -1,29 +1,25 @@
 import { Platform } from "react-native";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import { type Location } from "../../../infrastructure/interfaces/location";
 
-export const Map = () => {
+interface Props {
+  showUserLocation?: boolean;
+  initialLocation: Location;
+}
+
+export const Map = ({ showUserLocation = true, initialLocation }: Props) => {
   return (
     <>
       <MapView
+        showsUserLocation={showUserLocation}
         provider={Platform.OS === "ios" ? undefined : PROVIDER_GOOGLE}
         style={{ flex: 1 }}
         region={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          ...initialLocation,
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121
         }}
-      >
-        <Marker
-          coordinate={{
-            latitude: 37.78825,
-            longitude: -122.4324
-          }}
-          title="Este es el título del marcador"
-          description="Este es el cuerpo del marcador"
-          image={require("../../../assets/marker.png")}
-        />
-      </MapView>
+      />
     </>
   );
 };
