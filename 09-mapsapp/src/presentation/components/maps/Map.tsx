@@ -2,7 +2,7 @@ import { Platform } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { type Location } from "../../../infrastructure/interfaces/location";
 import { FAB } from "../ui/FAB";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocationStore } from "../../store/location/useLocationStore";
 
 interface Props {
@@ -19,6 +19,7 @@ export const Map = ({ showUserLocation = true, initialLocation }: Props) => {
   } = useLocationStore();
   const mapRef = useRef<MapView>();
   const cameraLocation = useRef<Location>(initialLocation);
+  const [isFollowingUser, setIsFollowingUser] = useState(true);
 
   const moveCameraToLocation = (location: Location) => {
     if (!mapRef.current) return;
@@ -38,8 +39,10 @@ export const Map = ({ showUserLocation = true, initialLocation }: Props) => {
   }, []);
 
   useEffect(() => {
-    if (lastKnownLocation) moveCameraToLocation(lastKnownLocation);
-  }, [lastKnownLocation]);
+    if (lastKnownLocation && isFollowingUser) {
+      moveCameraToLocation(lastKnownLocation);
+    }
+  }, [lastKnownLocation, isFollowingUser]);
 
   return (
     <>
@@ -47,12 +50,18 @@ export const Map = ({ showUserLocation = true, initialLocation }: Props) => {
         ref={(map) => mapRef.current = map!}
         showsUserLocation={showUserLocation}
         provider={Platform.OS === "ios" ? undefined : PROVIDER_GOOGLE}
+        onTouchStart={() => setIsFollowingUser(false)}
         style={{ flex: 1 }}
         region={{
           ...cameraLocation.current,
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121
         }}
+      />
+      <FAB
+        iconName={isFollowingUser ? "walk-outline" : "accessibility-outline"}
+        onPress={() => setIsFollowingUser(!isFollowingUser)}
+        style={{ bottom: 80, right: 20 }}
       />
       <FAB
         iconName="compass-outline"
